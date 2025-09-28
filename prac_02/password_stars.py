@@ -14,8 +14,25 @@ display len(Password) * "*"
 
 MIN_PASSWORD_LENGTH = 6
 
-password = input("Password: ")
-while len(password) < 6:
-    print("Invalid password")
+
+def main():
+    """Get valid password and print stars of password length."""
+    password = get_password()
+    print_stars(password)
+
+
+def print_stars(password: str):
+    """Print stars."""
+    print(len(password) * "*", end="")
+
+
+def get_password() -> str:
+    """Get valid password."""
     password = input("Password: ")
-print(len(password) * "*", end="")
+    while len(password) < 6:
+        print("Incorrect password")
+        password = input("Password: ")
+    return password
+
+
+main()
