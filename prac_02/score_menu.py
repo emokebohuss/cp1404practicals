@@ -2,7 +2,7 @@
 
 
 def main()
-    get score
+    get valid score
     display menu
     get choice
     while choice != Q
@@ -27,14 +27,12 @@ MENU = "-----------------\n(G)et valid score\n(P)rint result\n(S)how stars\n(Q)u
 
 def main():
     """Get score, print result or show stars, based on user choice."""
-    score = int(input("Score: "))
-    score = get_valid_score(score)
+    score = get_valid_score()
     print(MENU)
     choice = input("Choice: ").upper()
     while choice != "Q":
         if choice == "G":
-            score = int(input("Score: "))
-            score = get_valid_score(score)
+            score = get_valid_score()
         elif choice == "P":
             result = determine_result(score)
             print(result)
@@ -47,7 +45,9 @@ def main():
     print("Farewell.")
 
 
-def get_valid_score(score):
+def get_valid_score():
+    """Get valid score."""
+    score = int(input("Score: "))
     while score < 0 or score > 100:
         print("Score must be between 0 and 100.")
         score = int(input("Score: "))
