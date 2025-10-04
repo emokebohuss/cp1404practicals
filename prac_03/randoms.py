@@ -16,7 +16,7 @@ randoms.py
 
 # Answer: smallest possible integer is 3 and the largest is 9.
 # 4 cannot be produced because the program prints integers in steps of 2, starting from 3,
-# therefore only odd numbers are possible (ie. 3, 5, 7, 9)
+# therefore only odd numbers are possible (i.e. 3, 5, 7, 9)
 
 
 # Q3
