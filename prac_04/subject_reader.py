@@ -7,6 +7,7 @@ FILENAME = "subject_data.txt"
 
 
 def main():
+    """Load subject records from a file and display subject details."""
     subject_records = load_subject_records(FILENAME)
     print(subject_records)
     display_subject_details(subject_records)
