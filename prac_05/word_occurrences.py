@@ -2,6 +2,8 @@
 Word Occurrences
 Estimate: 32 minutes
 Actual: 13 minutes
+
+Count each word occurrence, save it in a dictionary and print results.
 """
 
 text = input("Text: ")
