@@ -31,12 +31,11 @@ def load_matches_data(filename):
         matches = []
         in_file.readline()
         for line in in_file:
-            line = line.strip()
-            match_details = line.split(",")
-            match_details[0] = int(match_details[0])  # ignore error, convert year to int
-            match_details[5] = ",".join(match_details[5:])  # create sting of scores
-            del match_details[6:]  # delete redundant scores
-            matches.append(match_details)
+            line = line.strip().split(",")
+            line[0] = int(line[0])  # ignore error, convert year to int
+            line[5] = ",".join(line[5:])  # create sting of scores
+            del line[6:]  # delete redundant scores
+            matches.append(line)
         return matches
 
 
