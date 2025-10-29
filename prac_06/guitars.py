@@ -1,6 +1,6 @@
 """CP1404 Prac 6 Guitars client code.
 Estimated: 25 mins
-Actual:
+Actual: 31 mins
 """
 
 from prac_06.guitar import Guitar
@@ -19,6 +19,7 @@ while name != "":
     name = input("Name: ")
 
 print(f"These are my guitars:")
+name_max_length = max(len(guitar.name) for guitar in guitars)
 for i, guitar in enumerate(guitars, 1):
     vintage_string = " (vintage)" if guitar.is_vintage(CURRENT_YEAR) else ""
-    print(f"Guitar {i}: {guitar.name:>20} ({guitar.year}), worth ${guitar.cost:10,.2f}{vintage_string}")
+    print(f"Guitar {i}: {guitar.name:>{name_max_length}} ({guitar.year}), worth ${guitar.cost:10,.2f}{vintage_string}")
