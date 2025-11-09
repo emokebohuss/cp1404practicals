@@ -1,8 +1,9 @@
 """Prac 7 - Client code for project.py
 Estimate: 135
-Actual:
+Actual: 56 +
 """
 import datetime
+from html.parser import incomplete
 
 from project import Project
 
@@ -14,6 +15,7 @@ MENU = ("- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter 
 def main():
     print("Welcome to Pythonic Project Management")
     projects = load_projects(FILENAME)
+    projects.sort()
     print(f"Loaded {len(projects)} projects from {FILENAME}")
     # print(projects[1])
     print(MENU)
@@ -24,7 +26,12 @@ def main():
         elif choice == "S":
             pass
         elif choice == "D":
-            pass
+            print("Incomplete projects:")
+            incomplete_projects = (project for project in projects if not Project.is_completed(project))
+            display_projects(incomplete_projects)
+            print("Completed projects:")
+            complete_projects = (project for project in projects if Project.is_completed(project))
+            display_projects(complete_projects)
         elif choice == "F":
             pass
         elif choice == "A":
@@ -52,5 +59,12 @@ def load_projects(filename):
     return projects
 
 
+def display_projects(projects):
+    """Display projects."""
+    for project in projects:
+        print(f"  {project}")
+
+
 if __name__ == '__main__':
     main()
+
