@@ -8,7 +8,7 @@ FILENAME = "guitars.csv"
 
 def main():
     guitars = load_guitars(FILENAME)
-    get_new_guitar(guitars)
+    get_new_guitars(guitars)
     guitars.sort()
     display_guitars(guitars)
 
