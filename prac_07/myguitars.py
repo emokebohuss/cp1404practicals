@@ -11,6 +11,7 @@ def main():
     get_new_guitars(guitars)
     guitars.sort()
     display_guitars(guitars)
+    save_guitars(FILENAME, guitars)
 
 
 def load_guitars(filename):
@@ -38,6 +39,12 @@ def get_new_guitars(guitars):
         print(f"{new_guitar} added.\n")
         name = input("Name: ")
     return guitars
+
+
+def save_guitars(filename, guitars):
+    with open(filename, "w") as out_file:
+        for guitar in guitars:
+            print(f"{guitar.name},{guitar.year},{guitar.cost}", file=out_file)
 
 
 if __name__ == '__main__':
