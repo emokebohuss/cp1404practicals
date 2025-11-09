@@ -18,7 +18,7 @@ class Guitar:
         return f"{self.name} ({self.year}) : ${self.cost:,.2f}"
 
     def __lt__(self, other):
-        """Determine if Guitar instance is younger than other instance."""
+        """Determine if Guitar instance is older than other instance."""
         return self.year < other.year
 
     def get_age(self, current_year):
