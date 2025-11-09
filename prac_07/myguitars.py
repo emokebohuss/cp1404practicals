@@ -1,5 +1,5 @@
 """myguitars.py by Emoke Bohuss
-client code gor Guitar.py"""
+client code for Guitar.py"""
 
 from prac_07.guitar import Guitar
 
