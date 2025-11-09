@@ -17,6 +17,9 @@ class Guitar:
         """Represent Guitar data as a string."""
         return f"{self.name} ({self.year}) : ${self.cost:,.2f}"
 
+    def __lt__(self, other):
+        return self.year < other.year
+
     def get_age(self, current_year):
         """Calculate the age of the Guitar instance."""
         return current_year - self.year
@@ -24,3 +27,5 @@ class Guitar:
     def is_vintage(self, current_year):
         """Determine whether a Guitar is vintage (50 or more years old)."""
         return self.get_age(current_year) >= 50  # Vintage over 50 or more years old
+
+
