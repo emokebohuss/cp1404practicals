@@ -14,14 +14,14 @@ def main():
 
 
 def load_subject_records(filename=FILENAME):
-    """Read data from file formatted like: subject,lecturer,number of students."""
+    """Read matches from file formatted like: subject,lecturer,number of students."""
     subject_records = []
     input_file = open(filename)
     for line in input_file:
         # print(line)  # See what a line looks like
         # print(repr(line))  # See what a line really looks like
         line = line.strip()  # Remove the \n
-        subject_details = line.split(',')  # Separate the data into its parts
+        subject_details = line.split(',')  # Separate the matches into its parts
         # print(parts)  # See what the parts look like (notice the integer is a string)
         subject_details[2] = int(subject_details[2])  # Make the number an integer (ignore PyCharm's warning)
         # print(parts)  # See if that worked
