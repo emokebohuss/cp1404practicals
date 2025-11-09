@@ -1,5 +1,5 @@
 """Prac 7 - Client code for project.py
-Estimate: 75
+Estimate: 135
 Actual:
 """
 import datetime
@@ -7,11 +7,34 @@ import datetime
 from project import Project
 
 FILENAME = "projects.txt"
+MENU = ("- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n"
+        "- (A)dd new project\n- (U)pdate project\n- (Q)uit")
 
 
 def main():
+    print("Welcome to Pythonic Project Management")
     projects = load_projects(FILENAME)
-    print(projects[1])
+    print(f"Loaded {len(projects)} projects from {FILENAME}")
+    # print(projects[1])
+    print(MENU)
+    choice = input(">>> ").upper()
+    while choice != "Q":
+        if choice == "L":
+            pass
+        elif choice == "S":
+            pass
+        elif choice == "D":
+            pass
+        elif choice == "F":
+            pass
+        elif choice == "A":
+            pass
+        elif choice == "U":
+            pass
+        else:
+            print("Invalid menu choice!")
+        choice = input(">>> ").upper()
+    print("Thank you for using custom-built project management software.")
 
 
 def load_projects(filename):
