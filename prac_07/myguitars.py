@@ -42,7 +42,6 @@ def get_new_guitars(guitars):
         guitars.append(new_guitar)
         print(f"{new_guitar} added.\n")
         name = input("Name: ")
-    return guitars
 
 
 def save_guitars(filename, guitars):
