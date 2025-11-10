@@ -20,10 +20,11 @@ def main():
     choice = input(">>> ").upper()
     while choice != "Q":
         if choice == "L":
-            new_filename = get_valid_string("File name: ")
-            load_projects(new_filename)
+            new_in_filename = get_valid_string("File name: ")
+            load_projects(new_in_filename)
         elif choice == "S":
-            pass
+            new_out_filename = get_valid_string("File name: ")
+            save_projects(new_out_filename)
 
         elif choice == "D":
             print("Incomplete projects:")
@@ -131,6 +132,14 @@ def get_valid_string(prompt):
         print("Input can not be blank")
         text = input(prompt).strip()
     return text.strip()
+
+
+def save_projects(filename, projects):
+    """Dave projects to file"""
+    with open(filename, 'w') as out_file:
+        for project in projects:
+            print(f"{project.name}\t{project.start_date}\t{project.priority}\t"
+                  f"{project.cost_estimate}\t{project.cost_estimate}")
 
 
 if __name__ == '__main__':
