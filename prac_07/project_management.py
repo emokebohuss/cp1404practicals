@@ -14,16 +14,17 @@ MENU = ("- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter 
 def main():
     print("Welcome to Pythonic Project Management")
     projects = load_projects(FILENAME)
-    print(f"Loaded {len(projects)} projects from {FILENAME}")
     for project in projects:
         print(project)
     print(MENU)
     choice = input(">>> ").upper()
     while choice != "Q":
         if choice == "L":
-            pass
+            new_filename = get_valid_string("File name: ")
+            load_projects(new_filename)
         elif choice == "S":
             pass
+
         elif choice == "D":
             print("Incomplete projects:")
             incomplete_projects = (project for project in projects if not Project.is_completed(project))
@@ -31,10 +32,24 @@ def main():
             print("Completed projects:")
             complete_projects = (project for project in projects if Project.is_completed(project))
             display_projects(complete_projects)
+
         elif choice == "F":
-            pass
+            date_choice = datetime.datetime.strptime(
+                get_valid_string("Show projects that start after date (dd/mm/yy): "), "%d/%m/%Y").date()
+            recent_projects = (project for project in projects if project.start_date >= date_choice)
+            for project in recent_projects:
+                print(project)
+
         elif choice == "A":
-            pass
+            print("Let's add a new project")
+            name = get_valid_string("Name: ")
+            start_date = datetime.datetime.strptime(get_valid_string("Start date (dd/mm/yy): "), "%d/%m/%Y").date()
+            priority = get_valid_integer("Priority: ", 9)
+            cost = get_valid_integer("Cost estimate: ", 1000000)
+            percent = get_valid_integer("Percent complete: ", 100)
+            new_project = Project(name, start_date, priority, cost, percent)
+            projects.append(new_project)
+
         elif choice == "U":
             # Display numbered projects
             for i, project in enumerate(projects):
@@ -47,8 +62,8 @@ def main():
             update_project(chosen_project)
 
         else:
-            print(MENU)
             print("Invalid menu choice!")
+        print(MENU)
         choice = input(">>> ").upper()
     print("Thank you for using custom-built project management software.")
 
@@ -65,6 +80,7 @@ def load_projects(filename):
             # Construct a Project object using the elements
             project = Project(parts[0], parts[1], int(parts[2]), float(parts[3]), int(parts[4]))
             projects.append(project)
+    print(f"Loaded {len(projects)} projects from {filename}")
     return projects
 
 
@@ -106,6 +122,15 @@ def get_valid_integer(prompt, upper_condition):
         except ValueError:
             print("Invalid (not an integer)")
     return choice  # Ignore warning
+
+
+def get_valid_string(prompt):
+    """Get non-empty string."""
+    text = input(prompt).strip()
+    while text == "":
+        print("Input can not be blank")
+        text = input(prompt).strip()
+    return text.strip()
 
 
 if __name__ == '__main__':
