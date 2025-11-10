@@ -17,8 +17,8 @@ class Project:
 
     def __str__(self):
         """Represent Project data as a string."""
-        return (f"{self.name} start: {self.start_date}, priority {self.priority}, estimate: "
-                f"${self.cost_estimate:,.2f}, completion: {self.completion_percentage}%")
+        return (f"{self.name}, start: {self.start_date}, priority {self.priority}, estimate: "
+                f"${self.cost_estimate:.2f}, completion: {self.completion_percentage}%")
 
     def __lt__(self, other):
         """Determine whether priority of Project instance is lower than other instance's."""
