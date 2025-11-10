@@ -1,6 +1,6 @@
 """Prac 7 - Client code for project.py
-Estimate: 135
-Actual: 56 +
+Estimate: 135 mins
+Actual: 92 mins + 2 hours playing with exception handling.
 """
 from project import Project
 from datetime import datetime
