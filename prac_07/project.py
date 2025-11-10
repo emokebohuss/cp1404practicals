@@ -15,9 +15,9 @@ class Project:
         self.cost_estimate = cost_estimate
         self.completion_percentage = completion_percentage
 
-    def __str__(self):
-        """Represent Project data as a string."""
-        return (f"{self.name}, start: {self.start_date}, priority {self.priority}, estimate: "
+    def __repr__(self):
+        """Return string representation of a Project instance."""
+        return (f"{self.name}, start: {self.start_date.strftime('%d/%m/%Y')}, priority {self.priority}, estimate: "
                 f"${self.cost_estimate:.2f}, completion: {self.completion_percentage}%")
 
     def __lt__(self, other):
