@@ -1,12 +1,13 @@
 BoxLayout:
-    orientation: 'horizontal'
+    orientation: 'vertical'
     BoxLayout:
-        orientation: 'vertical'
+        orientation: 'horizontal'
         TextInput:
             id: input_number
             text: 'Input miles'
         BoxLayout:
-            orientation: 'horizontal'
+            orientation: 'vertical'
+            size_hint_x: 0.2
             Button:
                 text: 'Up'
             Button:
@@ -15,3 +16,4 @@ BoxLayout:
         text: 'Convert miles to km'
     Label:
         text: '54'
+        color: (1, 1, 0, 1)
