@@ -10,6 +10,7 @@ from kivy.core.window import Window
 
 MILE_TO_KM_CONVERSION = 1.609344
 
+
 class ConvertMilesKm(App):
     """ConvertMilesKmApp is a Kivy App for converting miles to km."""
     kms_text = StringProperty()
@@ -22,11 +23,19 @@ class ConvertMilesKm(App):
         return self.root
 
     def handle_calculate(self, value):
-        """Handle calculation (could be button press or other call), output result to label widget."""
+        """Handle calculation, output result to label widget."""
         try:
             result = float(value) * MILE_TO_KM_CONVERSION
             self.kms_text = str(result)
         except ValueError:
             self.kms_text = '0.0'
+
+    def handle_increment(self, value, increment):
+        """Increment number of miles by 1 or -1, depending on button pressed."""
+        try:
+            self.root.ids.input_number.text = str(float(value) + increment)
+        except ValueError:
+            self.root.ids.input_number.text = str(0.0 + increment)
+
 
 ConvertMilesKm().run()
