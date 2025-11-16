@@ -8,7 +8,7 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.core.window import Window
 
-MILE_TO_KM_CONVERSION = 1.609344
+MILE_TO_KM_CONVERSION = 1.60934
 
 
 class ConvertMilesKm(App):
@@ -26,7 +26,7 @@ class ConvertMilesKm(App):
         """Handle calculation, output result to label widget."""
         try:
             result = float(value) * MILE_TO_KM_CONVERSION
-            self.kms_text = str(result)
+            self.kms_text = f"{result:.5f}"
         except ValueError:
             self.kms_text = '0.0'
 
