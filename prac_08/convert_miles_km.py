@@ -4,21 +4,15 @@ By Emoke Bohuss
 Convert miles to km app
 """
 from kivy.properties import StringProperty
-
-"""
-CP1404/CP5632 Practical week 8
-Kivy GUI program to square a number
-Emoke Bohuss
-"""
-
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.core.window import Window
 
+MILE_TO_KM_CONVERSION = 1.609344
 
 class ConvertMilesKm(App):
     """ConvertMilesKmApp is a Kivy App for converting miles to km."""
-    status_text = StringProperty()
+    kms_text = StringProperty()
 
     def build(self):
         """Build the Kivy app from the kv file."""
@@ -27,5 +21,12 @@ class ConvertMilesKm(App):
         self.root = Builder.load_file('convert_miles_km.kv')
         return self.root
 
+    def handle_calculate(self, value):
+        """Handle calculation (could be button press or other call), output result to label widget."""
+        try:
+            result = float(value) * MILE_TO_KM_CONVERSION
+            self.kms_text = str(result)
+        except ValueError:
+            self.kms_text = '0.0'
 
 ConvertMilesKm().run()
