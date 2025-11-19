@@ -7,7 +7,7 @@ from prac_09.unreliable_car import UnreliableCar
 
 
 def run_tests():
-    """Run tests for UnreliableCar instances with various reliability"""
+    """Run tests for UnreliableCar instances with various reliability."""
     mid_car = UnreliableCar("Ranger", 100, 50)
     good_car = UnreliableCar("Mazda", 100, 90)
     bad_car = UnreliableCar("BMW", 100, 10)
