@@ -4,7 +4,7 @@ CP1404 Prac09 Emoke Bohuss"""
 from taxi import Taxi
 
 # 1. Create new taxi object
-my_taxi = Taxi("Prius 1", 100, 1.23)
+my_taxi = Taxi("Prius 1", 100)
 
 # 2. Drive taxi 40km
 my_taxi.drive(40)
