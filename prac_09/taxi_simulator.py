@@ -44,4 +44,15 @@ def choose_taxi(taxis):
     return current_taxi
 
 
+def drive_taxi(current_taxi, total_bill):
+    if current_taxi is None:
+        print("You need to choose a taxi before you can drive")
+    else:
+        distance = int(input("Drive how far? "))
+        current_taxi.drive(distance)
+        print(f"Your {current_taxi.name} trip cost you ${current_taxi.get_fare():.2f}")
+        total_bill += current_taxi.get_fare()
+    return total_bill
+
+
 main()
