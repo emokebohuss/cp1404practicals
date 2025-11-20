@@ -6,8 +6,6 @@ Client (test) code for SilverServiceTaxi class.
 
 from silver_service_taxi import SilverServiceTaxi
 
-FLAGFALL = SilverServiceTaxi.flagfall
-
 # Test 1
 test_taxi = SilverServiceTaxi("Hummer", 200, 2)
 test_taxi.drive(18)
