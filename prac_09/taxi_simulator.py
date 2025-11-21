@@ -42,14 +42,15 @@ def choose_taxi(taxis):
     return current_taxi
 
 
-def drive_taxi(current_taxi, total_bill, taxis):
+def drive_taxi(current_taxi, total_bill):
     if current_taxi is None:
         print("You need to choose a taxi before you can drive")
     else:
-        distance = int(input("Drive how far? "))
+        current_taxi.start_fare()
+        distance = get_valid_distance()
         current_taxi.drive(distance)
         print(f"Your {current_taxi.name} trip cost you ${current_taxi.get_fare():.2f}")
-        total_bill = sum(taxi.get_fare() for taxi in taxis)
+        total_bill += current_taxi.get_fare()
     return total_bill
 
 
@@ -63,6 +64,14 @@ def get_valid_taxi(taxis):
         print("Invalid taxi choice")
     except IndexError:
         print("Invalid taxi choice")
+
+
+def get_valid_distance():
+    try:
+        distance = int(input("Drive how far? "))
+        return distance
+    except ValueError:
+        print("Invalid distance")
 
 
 main()
