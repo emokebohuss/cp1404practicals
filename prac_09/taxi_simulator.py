@@ -20,7 +20,7 @@ def main():
         if choice == "C":
             current_taxi = choose_taxi(taxis)
         elif choice == "D":
-            total_bill = drive_taxi(current_taxi, total_bill)
+            total_bill = drive_taxi(current_taxi, total_bill, taxis)
         else:
             print("Invalid option")
         print(f"Bill to date: ${total_bill:.2f}")
@@ -38,21 +38,31 @@ def display_taxis(taxis):
 def choose_taxi(taxis):
     print("Taxis available:")
     display_taxis(taxis)
-    chosen_taxi = int(input("Choose taxi: "))
-    current_taxi = taxis[chosen_taxi]
-    print(current_taxi)
+    current_taxi = get_valid_taxi(taxis)
     return current_taxi
 
 
-def drive_taxi(current_taxi, total_bill):
+def drive_taxi(current_taxi, total_bill, taxis):
     if current_taxi is None:
         print("You need to choose a taxi before you can drive")
     else:
         distance = int(input("Drive how far? "))
         current_taxi.drive(distance)
         print(f"Your {current_taxi.name} trip cost you ${current_taxi.get_fare():.2f}")
-        total_bill += current_taxi.get_fare()
+        total_bill = sum(taxi.get_fare() for taxi in taxis)
     return total_bill
+
+
+def get_valid_taxi(taxis):
+    """Get valid taxi index from user and return chosen taxi."""
+    try:
+        chosen_taxi = int(input("Choose taxi: "))
+        current_taxi = taxis[chosen_taxi]
+        return current_taxi
+    except ValueError:
+        print("Invalid taxi choice")
+    except IndexError:
+        print("Invalid taxi choice")
 
 
 main()
