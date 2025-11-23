@@ -20,14 +20,16 @@ def main():
         if choice == "C":
             current_taxi = choose_taxi(taxis)
         elif choice == "D":
-            total_bill = drive_taxi(current_taxi, total_bill, taxis)
+            total_bill = drive_taxi(current_taxi, total_bill)
         else:
             print("Invalid option")
         print(f"Bill to date: ${total_bill:.2f}")
         print()
         print(MENU)
         choice = input(">>> ").upper()
-    print(f"Total trip cost: ")
+    print(f"Total trip cost: ${total_bill:.2f}")
+    print("Taxis are now:")
+    display_taxis(taxis)
 
 
 def display_taxis(taxis):
@@ -57,8 +59,8 @@ def drive_taxi(current_taxi, total_bill):
 def get_valid_taxi(taxis):
     """Get valid taxi index from user and return chosen taxi."""
     try:
-        chosen_taxi = int(input("Choose taxi: "))
-        current_taxi = taxis[chosen_taxi]
+        taxi_index = int(input("Choose taxi: "))
+        current_taxi = taxis[taxi_index]
         return current_taxi
     except ValueError:
         print("Invalid taxi choice")
@@ -67,11 +69,17 @@ def get_valid_taxi(taxis):
 
 
 def get_valid_distance():
-    try:
-        distance = int(input("Drive how far? "))
-        return distance
-    except ValueError:
-        print("Invalid distance")
+    is_valid_input = False
+    while not is_valid_input:
+        try:
+            distance = int(input("Drive how far? "))
+            if distance < 0:
+                print("Distance must be at least 0km.")
+            else:
+                is_valid_input = True
+        except ValueError:
+            print("Invalid distance")
+    return distance  # No problem with potential undefined variable
 
 
 main()
