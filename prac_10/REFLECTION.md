@@ -69,8 +69,8 @@ towards finding the solution.
 
 Some of the pracs were quite long (taxi_simulator.py and project_management.py) but I understand that they serve their
 educational purpose well.
-Also extended due date for the weeks coinciding with the Design Thinking sprint and for the last week to accommodate to
-the volume of assignments - just a day or two to not take away from the exam prep but help ease the load)
+Also extended due date for the week coinciding with the Design Thinking sprint and for the last week to accommodate to
+the volume of assignments - just a day or two to not take away from the exam prep but help ease the load
 
 ### What did you do really well for practicals in this subject?
 
