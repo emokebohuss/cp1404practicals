@@ -47,26 +47,32 @@ For each one, write a short explanation of what was good about your review.
 
 ### Good Code Review 1
 
-[]()
+[Prac 06 Feedback](https://github.com/FayeHermans/cp1404practicals/pull/2#pullrequestreview-3443184954)
 
 ### Explanation
 
-...
+I review all files to identify if there is a recurring issue of which the reviewee is not aware of - in this example,
+they kept missing docstrings from functions.
 
 ### Good Code Review 2
 
-[]()
+[Prac 05 Feedback](https://github.com/saxonn-capilos/cp1404practicals/pull/1#event-20717980862)
 
 ### Explanation
 
-...
+Giving constructive feedback that does not emphasise the incorrectness of the code but rather prompts the reviewee
+towards finding the solution.
 
 ## Practicals
 
 ### Regarding the **practical tasks** overall, what would you change if you were in charge of the subject?
 
-...
+Some of the pracs were quite long (taxi_simulator.py and project_management.py) but I understand that they serve their
+educational purpose well.
+Also extended due date for the weeks coinciding with the Design Thinking sprint and for the last week to accommodate to
+the volume of assignments - just a day or two to not take away from the exam prep but help ease the load)
 
 ### What did you do really well for practicals in this subject?
 
-...
+I aimed for high quality work and took my time to actually understand the code I'm writing, even if this resulted in
+some frustration and long nights - but what's the point of education if we do the bare minimum?
