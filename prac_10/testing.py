@@ -52,16 +52,6 @@ run_tests()
 doctest.testmod()
 
 
-# TODO: 5. Write and test a function to format a phrase as a sentence,
-# starting with a capital and ending with a single full stop.
-# Important: start with a function header and just use pass as the body
-# then add doctests for 3 tests:
-#   'hello' -> 'Hello.'
-#   'It is an ex parrot.' -> 'It is an ex parrot.'
-# and one more that you decide is a useful test.
-# Run your doctests and watch the tests fail.
-# Then write the body of the function so that the tests pass.
-
 def format_sentence(phrase):
 
     """
@@ -75,6 +65,7 @@ def format_sentence(phrase):
     """
 
     words = phrase.split()
+    # Capitalise first letter of the first word
     words[0] = words[0][0].upper() + words[0][1:]
     sentence = " ".join(words)
     period_string = "" if sentence.endswith('.') else "."
