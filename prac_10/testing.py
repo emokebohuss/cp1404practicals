@@ -53,7 +53,6 @@ doctest.testmod()
 
 
 def format_sentence(phrase):
-
     """
     Format phrase as a sentence
     >>> format_sentence('hello')
